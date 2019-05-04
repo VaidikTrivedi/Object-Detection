@@ -17,8 +17,8 @@ from utils import label_map_util
 from utils import visualization_utils as vis_util
 
 
-# # Model preparation 
-# Any model exported using the `export_inference_graph.py` tool can be loaded here simply by changing `PATH_TO_CKPT` to point to a new .pb file.  
+# # Model preparation
+# Any model exported using the `export_inference_graph.py` tool can be loaded here simply by changing `PATH_TO_CKPT` to point to a new .pb file.
 # By default we use an "SSD with Mobilenet" model here. See the [detection model zoo](https://github.com/tensorflow/models/blob/master/object_detection/g3doc/detection_model_zoo.md) for a list of other models that can be run out-of-the-box with varying speeds and accuracies.
 
 # What model to download.
@@ -48,7 +48,7 @@ if not os.path.exists(MODEL_NAME + '/frozen_inference_graph.pb'):
 	    tar_file.extract(file, os.getcwd())
 	print ('Download complete')
 else:
-	print ('\nModel already exists\n\nWebcam starting...')
+	print ('Model already exists')
 
 # ## Load a (frozen) Tensorflow model into memory.
 
@@ -108,5 +108,4 @@ with detection_graph.as_default():
       if cv2.waitKey(25) & 0xFF == ord('q'):
           cv2.destroyAllWindows()
           cap.release()
-          print("\nHope You Liked it!")
           break
